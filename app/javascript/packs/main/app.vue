@@ -12,7 +12,7 @@ export default {
   },
   data: function () {
     return {
-      fienezegt: 'gaan we al?'
+      fienezegt: 'gaan we al!?'
     }
   },
   methods: {
@@ -22,8 +22,8 @@ export default {
 }
 </script>
 
-<style scoped>
-p {
+<style>
+div#app p {
   background-color: black;
   font-size: 2em;
   text-align: center;

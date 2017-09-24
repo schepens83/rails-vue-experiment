@@ -1,0 +1,14 @@
+div#calculator {
+  div#numbers div {
+    width: auto;
+    max-width: 50px;
+    min-width: 40px;
+    margin: 4px;
+    padding: 2px;
+    background-color: rgb(189, 190, 178);
+    color: rgb(0, 25, 94);
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma,  sans-serif;
+    text-align: center;
+    float: left;
+  }
+}

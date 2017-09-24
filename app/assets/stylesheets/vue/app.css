@@ -1,0 +1,6 @@
+div#app p {
+  background-color: lightgrey;
+  font-size: 1em;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma,  sans-serif;
+}
