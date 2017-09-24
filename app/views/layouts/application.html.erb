@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsVue2</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>RailsVue2</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
+<body>
+  <div class="container">
     <%= yield %>
-    <%= javascript_pack_tag 'main' %>
-  </body>
+  </div>
+  <%= javascript_pack_tag 'main' %>
+</body>
 </html>
