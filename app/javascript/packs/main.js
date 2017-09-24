@@ -11,5 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
       App
     }
   })
-  console.log("test")
 })
