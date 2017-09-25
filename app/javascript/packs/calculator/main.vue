@@ -1,11 +1,25 @@
 <template>
   <div id="calculator">
-    <div class="row " >
+    <div class="row">
+      <div v-if="debug" class="col-md-6" style="border-top: solid">
+        <div id="inputs">
+          <p>input_nr: {{ input_nr }}</p>
+          <p>numbers: {{ numbers }}</p>
+          <p>sign: {{ sign }}</p>
+          <p>inputs: {{ inputs }}</p>
+          <p>result: {{ result }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
       <div class="col-md-12" id="result-outer">
         <div class="result-inner">
           <div>{{ result }}</div>
         </div>
       </div>
+
     </div>
 
     <div class="row" id="numbers-pad">
@@ -21,16 +35,6 @@
 
       <div class="col-md-6 signs">
         <div v-on:click="show_result()">=</div>
-      </div>
-    </div>
-
-    <div v-if="debug" class="row" style="border-top: solid">
-      <div class="col-md-12" id="input">
-        <p>input_nr: {{ input_nr }}</p>
-        <p>numbers: {{ numbers }}</p>
-        <p>sign: {{ sign }}</p>
-        <p>inputs: {{ inputs }}</p>
-        <p>result: {{ result }}</p>
       </div>
     </div>
 
@@ -54,6 +58,7 @@ export default {
   methods: {
     add_nr: function(nr) {
       this.inputs.push(parseInt(nr));
+      this.result = this.input_nr
     },
     add_sign: function(sign) {
       console.log(sign)
@@ -68,7 +73,10 @@ export default {
 
       if (this.input_nr) { this.numbers.push(this.input_nr) }
         this.result = eval(this.numbers[0].toString() + this.sign + this.numbers[1].toString())
-      // this.result = this.numbers.reduce((a, b) => a + b, 0);
+
+      this.numbers = []
+      this.inputs = []
+      this.numbers.push(this.result)
     }
   },
 
