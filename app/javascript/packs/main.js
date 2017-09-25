@@ -1,6 +1,7 @@
 import Vue from 'vue/dist/vue.esm'
 import App from './main/app.vue'
 import Calculator from './calculator/main.vue'
+import AppCanvas from './canvas/canvas-main.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
@@ -8,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {},
     components: {
       Calculator,
-      App
+      App,
+      "app-canvas": AppCanvas
     }
   })
 })
