@@ -1,4 +1,12 @@
 class PagesController < ApplicationController
-  def home
+  def calculator
+  end
+
+  def canvas
+    @pixels = (1..1000).map { |n| n }
+  end
+
+  def to_do
+
   end
 end
