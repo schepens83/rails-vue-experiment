@@ -19,10 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const dayScore = new Vue({
     el: '#day-scores',
     data: {
-      day_scores: []
+      day_scores: [],
+      score: {
+        day: '',
+        tension: '',
+        sleep: ''
+      },
+      errors: {}
     },
     methods: {
+      addScore: function() {
+        var that = this;
+        $.ajax({
+          method: 'POST',
 
+          data: {
+            day_score: that.score
+          },
+          url: 'day_scores.json',
+          success: function(res) {
+            that.errors = {}
+            that.day_scores.push(res);
+          },
+          error: function(res) {
+            that.errors = res.responseJSON.errors
+          }
+        })
+      }
     },
 
     computed: {

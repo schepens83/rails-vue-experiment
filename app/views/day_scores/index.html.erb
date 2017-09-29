@@ -7,13 +7,29 @@
         <th>Date</th>
         <th>Tension</th>
         <th>Sleep</th>
+        <th>Add</th>
       </tr>
     </thead>
     <tbody>
       <tr is="day-score-row" v-for="score in day_scores" :score="score">
-    </tr>
-  </tbody>
-</table>
+      </tr>
+      <tr>
+        <td>
+          <input type="date" v-model="score.day"><br>
+          <span style="color:red">{{ errors.day }}</span>
+        </td>
+        <td>
+          <input type="number" v-model="score.tension"><br>
+          <span style="color:red">{{ errors.tension }}</span>
+        </td>
+        <td>
+          <input type="number" v-model="score.sleep"><br>
+          <span style="color:red">{{ errors.sleep }}</span>
+        </td>
+        <td><button v-on:click.prevent="addScore()">Add Score</button></td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>
 

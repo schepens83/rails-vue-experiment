@@ -6,4 +6,24 @@ class DayScoresController < ApplicationController
       format.json { render json: @day_score }
     end
   end
+
+  def create
+    @day_score = DayScore.new(day_score_params)
+    respond_to do |f|
+      f.json do
+        if @day_score.save
+          render json: @day_score
+        else
+          render json: { errors: @day_score.errors.messages }, status: 422
+        end
+      end
+    end
+  end
+
+  private
+
+  def day_score_params
+    params.require(:day_score).permit(:day, :tension, :sleep)
+
+  end
 end
