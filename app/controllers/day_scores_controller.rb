@@ -20,6 +20,19 @@ class DayScoresController < ApplicationController
     end
   end
 
+  def update
+    @day_score = DayScore.find(params[:id])
+    respond_to do |format|
+      format.json do
+        if @day_score.update(day_score_params)
+          render json: @day_score
+        else
+          render json: { errors: @day_score.errors.messages }, status: 422
+        end
+      end
+    end
+  end
+
   private
 
   def day_score_params
