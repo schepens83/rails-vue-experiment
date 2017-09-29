@@ -1,0 +1,43 @@
+<h1>Day Scores</h1>
+
+<div id="day-scores">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Tension</th>
+        <th>Sleep</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="score in day_scores">
+        <td>{{ score.day }}</td>
+        <td>{{ score.tension }}</td>
+        <td>{{ score.sleep }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+<!--
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Tension</th>
+        <th>Sleep</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @day_score.each do |s| %>
+      <tr>
+        <td><%= s.day %></td>
+        <td><%= s.tension %></td>
+        <td><%= s.sleep %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+ -->
+
+</div>
+
