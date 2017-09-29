@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.esm'
-import App from './main/app.vue'
-import Calculator from './calculator/main.vue'
-import AppCanvas from './canvas/canvas-main.vue'
+import Calculator from './calculator.vue'
+import AppCanvas from './canvas-main.vue'
+import ToDo from './todo.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {},
     components: {
       Calculator,
-      App,
-      "app-canvas": AppCanvas
+      "app-canvas": AppCanvas,
+      'to-do': ToDo
     }
   })
 })
