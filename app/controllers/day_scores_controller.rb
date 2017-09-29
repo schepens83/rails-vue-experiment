@@ -14,7 +14,7 @@ class DayScoresController < ApplicationController
         if @day_score.save
           render json: @day_score
         else
-          render json: { errors: @day_score.errors.messages }, status: 422
+          p render json: { errors: @day_score.errors.messages }, status: 422
         end
       end
     end

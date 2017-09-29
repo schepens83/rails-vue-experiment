@@ -24,11 +24,11 @@
             </td>
             <td>
               <input type="number" v-model="score.tension"><br>
-              <span style="color:red">{{ errors.tension }}</span>
+              <span style="color:red">{{ tension_error }}</span>
             </td>
             <td>
               <input type="number" v-model="score.sleep"><br>
-              <span style="color:red">{{ errors.sleep }}</span>
+              <span style="color:red">{{ sleep_error }}</span>
             </td>
             <td><button class="btn btn-primary" v-on:click.prevent="addScore()">Add Score</button></td>
           </tr>
@@ -79,6 +79,19 @@ export default {
 
   components: {
     'day-score-row': DayScoreRow
+  },
+
+  computed: {
+    sleep_error: function() {
+      if (this.errors.sleep) {
+        return this.errors.sleep[0]
+      }
+    },
+    tension_error: function() {
+      if (this.errors.tension) {
+        return this.errors.tension[0]
+      }
+    }
   },
 
   created: function() {
