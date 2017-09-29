@@ -2,7 +2,8 @@ import Vue from 'vue/dist/vue.esm'
 import Calculator from './calculator.vue'
 import AppCanvas from './canvas-main.vue'
 import ToDo from './todo.vue'
-// import DayScore from './dayscore.vue'
+import DayScoreRow from './day-score/day-score-row.vue'
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
@@ -27,11 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     computed: {
 
     },
+    components: {
+      'day-score-row': DayScoreRow
+    },
 
     created: function() {
       var that;
       that = this;
-      console.log('runs')
       $.ajax({
         url: 'day_scores.json',
         success: function(res) {
