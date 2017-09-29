@@ -1,5 +1,6 @@
 class DayScoreController < ApplicationController
-  def change
+  def index
+
 
   end
 end
