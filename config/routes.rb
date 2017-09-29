@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :day_scores
+  resources :day_scores, except: [:show]
   get 'home' => 'pages#home'
   get 'canvas' => 'pages#canvas'
   get 'calculator' => 'pages#calculator'

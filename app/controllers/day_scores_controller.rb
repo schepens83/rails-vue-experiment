@@ -33,6 +33,16 @@ class DayScoresController < ApplicationController
     end
   end
 
+  def destroy
+    @day_score = DayScore.find(params[:id])
+    @day_score.destroy
+    respond_to do |frmt|
+      frmt.json { render json: {}, status: :no_content }
+    end
+  end
+
+
+
   private
 
   def day_score_params
