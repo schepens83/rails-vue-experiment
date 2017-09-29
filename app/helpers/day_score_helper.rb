@@ -1,0 +1,2 @@
+module DayScoreHelper
+end
