@@ -33,8 +33,8 @@
 
     </td>
 
-    <button type="button" v-if="editMode" v-on:click.prevent="updateScore()">Update</button>
-    <button type="button" v-if="!editMode" v-on:click.prevent="editMode = true">Edit</button>
+    <button class="btn btn-outline-primary btn-sm" type="button" v-if="editMode" v-on:click.prevent="updateScore()">Update</button>
+    <button class="btn btn-outline-secondary btn-sm" type="button" v-if="!editMode" v-on:click.prevent="editMode = true">Edit</button>
 
   </tr>
 </template>
