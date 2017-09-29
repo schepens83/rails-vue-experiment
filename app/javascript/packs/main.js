@@ -1,4 +1,5 @@
 import Vue from 'vue/dist/vue.esm'
+import moment from 'moment'
 import Calculator from './calculator.vue'
 import AppCanvas from './canvas-main.vue'
 import ToDo from './todo.vue'
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       day_scores: [],
       score: {
-        day: '',
+        day: moment().format('YYYY-MM-DD'),
         tension: '',
         sleep: ''
       },
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             that.errors = res.responseJSON.errors
           }
         })
-      }
+      },
     },
 
     computed: {

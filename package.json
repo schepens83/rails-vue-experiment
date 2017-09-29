@@ -1,8 +1,10 @@
 {
   "name": "rails-vue-2",
   "private": true,
+  "license": "UNLICENSED",
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
+    "moment": "^2.18.1",
     "vue": "^2.4.4",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4"
