@@ -5,7 +5,7 @@
     <h1>Day Scores</h1>
 
     <div id="day-scores">
-      <table class="table table-hover table-condensed">
+      <table class="table table-condensed">
         <thead>
           <tr>
             <th>Date</th>
@@ -76,7 +76,7 @@ export default {
           that.errors = res.responseJSON.errors
         }
       })
-    },
+    }
   },
 
   components: {
@@ -93,7 +93,7 @@ export default {
       if (this.errors.tension) {
         return this.errors.tension[0]
       }
-    }
+    },
   },
 
   created: function() {

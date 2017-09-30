@@ -1,11 +1,11 @@
 <template>
-  <tr class="day-score-row" v-if="isVisible">
+  <tr v-if="isVisible" class="day-score-row">
     <td>
       <div v-if="editMode">
-        <input type="date" v-model="score.day"><br>
+        <input type="date" v-model="score.day" @keydown.enter="updateScore"><br>
         <span style="color:red">{{ errors.day }}</span>
       </div>
-      <div v-else>
+      <div @click="editModeOn" v-else>
         {{ score.day }}
 
       </div>
@@ -17,10 +17,10 @@
 
     <td>
       <div v-if="editMode">
-        <input type="number" v-model="score.tension"><br>
-        <span style="color:red">{{ errors.tension }}</span>
+        <input type="number" v-model="score.tension" @keydown.enter="updateScore"><br>
+        <span style="color:red">{{ tension_error }}</span>
       </div>
-      <div v-else>
+      <div @click="editModeOn" v-else>
         {{ score.tension }}
       </div>
 
@@ -28,19 +28,17 @@
 
     <td>
       <div v-if="editMode">
-        <input type="number" v-model="score.sleep"><br>
-        <span style="color:red">{{ errors.sleep }}</span>
+        <input type="number" v-model="score.sleep" @keydown.enter="updateScore"><br>
+        <span style="color:red">{{ sleep_error }}</span>
       </div>
-      <div v-else>
+      <div @click="editModeOn" v-else>
         {{ score.sleep }}
       </div>
 
     </td>
 
-    <button class="btn btn-outline-primary btn-sm" type="button" v-if="editMode" v-on:click.prevent="updateScore()">Update</button>
-
-    <button class="btn btn-outline-secondary btn-sm" type="button" v-if="!editMode" v-on:click.prevent="editMode = true">Edit</button>
-    <button class="btn btn-warning btn-sm" type="button" v-if="!editMode" v-on:click.prevent="deleteScore()">Delete</button>
+    <button class="btn btn-primary btn-sm" type="button" v-if="editMode" v-on:click.prevent="updateScore()">Update</button>
+    <button class="btn btn-warning btn-sm" type="button" v-if="editMode" v-on:click.prevent="deleteScore()">Delete</button>
   </tr>
 </template>
 
@@ -89,6 +87,12 @@ export default {
           that.isVisible = false;
         }
       })
+    },
+    editModeOn: function() {
+      this.editMode = true
+    },
+    editModeOff: function() {
+      this.editMode = false
     }
   },
 
@@ -97,6 +101,16 @@ export default {
       var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       var daydate = new Date(this.score.day)
       return days[ daydate.getDay() ]
+    },
+    sleep_error: function() {
+      if (this.errors.sleep) {
+        return this.errors.sleep[0]
+      }
+    },
+    tension_error: function() {
+      if (this.errors.tension) {
+        return this.errors.tension[0]
+      }
     }
   }
 }

@@ -14,7 +14,7 @@ class DayScoresController < ApplicationController
         if @day_score.save
           render json: @day_score
         else
-          p render json: { errors: @day_score.errors.messages }, status: 422
+          render json: { errors: @day_score.errors.messages }, status: 422
         end
       end
     end
@@ -46,7 +46,7 @@ class DayScoresController < ApplicationController
   private
 
   def day_score_params
-    params.require(:day_score).permit(:day, :tension, :sleep)
+    params.require(:day_score).permit(:id, :day, :tension, :sleep)
 
   end
 end
