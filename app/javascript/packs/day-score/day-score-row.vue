@@ -12,6 +12,10 @@
     </td>
 
     <td>
+      {{ weekDay }}
+    </td>
+
+    <td>
       <div v-if="editMode">
         <input type="number" v-model="score.tension"><br>
         <span style="color:red">{{ errors.tension }}</span>
@@ -85,6 +89,14 @@ export default {
           that.isVisible = false;
         }
       })
+    }
+  },
+
+  computed: {
+    weekDay: function() {
+      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var daydate = new Date(this.score.day)
+      return days[ daydate.getDay() ]
     }
   }
 }
