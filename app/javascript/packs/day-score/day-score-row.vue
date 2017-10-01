@@ -6,13 +6,9 @@
         <span style="color:red">{{ errors.day }}</span>
       </div>
       <div @click="editModeOn" v-else>
-        {{ score.day }}
+        {{ score.day + ' | ' + weekDay }}
 
       </div>
-    </td>
-
-    <td>
-      {{ weekDay }}
     </td>
 
     <td>

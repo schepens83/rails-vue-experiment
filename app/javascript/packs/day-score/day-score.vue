@@ -21,7 +21,6 @@
               <input type="date" v-model="score.day" @keydown.enter="addScore"><br>
               <span style="color:red">{{ errors.day }}</span>
             </td>
-            <td></td>
             <td>
               <input type="number" v-model="score.tension" @keydown.enter="addScore"><br>
               <span style="color:red">{{ tension_error }}</span>
