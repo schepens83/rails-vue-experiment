@@ -51,7 +51,7 @@ export default {
     return {
       day_scores: [],
       score: {
-        day: moment().format('DD-MM-YYYY'),
+        day: moment().format('YYYY-MM-DD'),
         tension: '',
         sleep: ''
       },
@@ -71,6 +71,9 @@ export default {
         url: 'day_scores.json',
         success: function(res) {
           that.errors = {}
+          that.score.day = ''
+          that.score.tension = ''
+          that.score.sleep = ''
           that.day_scores.unshift(res);
         },
         error: function(res) {
