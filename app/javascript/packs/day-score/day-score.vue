@@ -18,16 +18,16 @@
         <tbody>
           <tr>
             <td>
-              <input type="date" v-model="score.day"><br>
+              <input type="date" v-model="score.day" @keydown.enter="addScore"><br>
               <span style="color:red">{{ errors.day }}</span>
             </td>
             <td></td>
             <td>
-              <input type="number" v-model="score.tension"><br>
+              <input type="number" v-model="score.tension" @keydown.enter="addScore"><br>
               <span style="color:red">{{ tension_error }}</span>
             </td>
             <td>
-              <input type="number" v-model="score.sleep"><br>
+              <input type="number" v-model="score.sleep" @keydown.enter="addScore"><br>
               <span style="color:red">{{ sleep_error }}</span>
             </td>
             <td><button class="btn btn-primary" v-on:click.prevent="addScore()">Add Score</button></td>

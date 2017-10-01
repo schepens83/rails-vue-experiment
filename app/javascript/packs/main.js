@@ -7,7 +7,7 @@ import DayScore from './day-score/day-score.vue'
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
+  window.app = new Vue({
     el: '#main',
     data: {},
     components: {
