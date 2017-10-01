@@ -1,9 +1,9 @@
 class DayScoresController < ApplicationController
   def index
-    @day_score = DayScore.all
+    @day_scores = DayScore.all.sort { |a, b| b.day <=> a.day }
     respond_to do |format|
       format.html
-      format.json { render json: @day_score }
+      format.json { render json: @day_scores }
     end
   end
 

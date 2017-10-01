@@ -16,8 +16,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr is="day-score-row" v-for="score in day_scores" :score="score">
-          </tr>
           <tr>
             <td>
               <input type="date" v-model="score.day"><br>
@@ -33,6 +31,9 @@
               <span style="color:red">{{ sleep_error }}</span>
             </td>
             <td><button class="btn btn-primary" v-on:click.prevent="addScore()">Add Score</button></td>
+          </tr>
+
+          <tr is="day-score-row" v-for="score in day_scores" :score="score">
           </tr>
         </tbody>
       </table>
@@ -50,7 +51,7 @@ export default {
     return {
       day_scores: [],
       score: {
-        day: moment().format('YYYY-MM-DD'),
+        day: moment().format('DD-MM-YYYY'),
         tension: '',
         sleep: ''
       },
@@ -70,7 +71,7 @@ export default {
         url: 'day_scores.json',
         success: function(res) {
           that.errors = {}
-          that.day_scores.push(res);
+          that.day_scores.unshift(res);
         },
         error: function(res) {
           that.errors = res.responseJSON.errors
@@ -93,7 +94,7 @@ export default {
       if (this.errors.tension) {
         return this.errors.tension[0]
       }
-    },
+    }
   },
 
   created: function() {

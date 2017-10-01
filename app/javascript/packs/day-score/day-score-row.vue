@@ -37,12 +37,14 @@
 
     </td>
 
-    <button class="btn btn-primary btn-sm" type="button" v-if="editMode" v-on:click.prevent="updateScore()">Update</button>
+    <button class="btn btn-primary btn-sm" type="button" v-if="editMode" v-on:click.prevent="updateScore()">Save</button>
     <button class="btn btn-warning btn-sm" type="button" v-if="editMode" v-on:click.prevent="deleteScore()">Delete</button>
   </tr>
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   props: {
     score: Object
