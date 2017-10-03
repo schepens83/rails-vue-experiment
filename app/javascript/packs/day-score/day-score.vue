@@ -1,15 +1,14 @@
 
 
 <template>
-  <div>
+  <div class="row">
     <h1>Day Scores</h1>
 
-    <div id="day-scores">
+    <div class="col-xs-12 table-responsive" id="day-scores">
       <table class="table table-condensed">
         <thead>
           <tr>
             <th>Date</th>
-            <th>Day</th>
             <th>Tension</th>
             <th>Sleep</th>
             <th>Action</th>
@@ -22,11 +21,11 @@
               <span style="color:red">{{ errors.day }}</span>
             </td>
             <td>
-              <input type="number" v-model="score.tension" @keydown.enter="addScore"><br>
+              <input type="range" min="0" max="10" v-model="score.tension" @keydown.enter="addScore">{{ score.tension }}<br>
               <span style="color:red">{{ tension_error }}</span>
             </td>
             <td>
-              <input type="number" v-model="score.sleep" @keydown.enter="addScore"><br>
+              <input type="range" min="0" max="10" v-model="score.sleep" @keydown.enter="addScore">{{ score.sleep }}<br>
               <span style="color:red">{{ sleep_error }}</span>
             </td>
             <td><button class="btn btn-primary" v-on:click.prevent="addScore()">Add Score</button></td>

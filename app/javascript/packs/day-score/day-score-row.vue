@@ -13,26 +13,25 @@
 
     <td>
       <div v-if="editMode">
-        <input type="number" v-model="score.tension" @keydown.enter="updateScore"><br>
+        <input type="range" min="0" max="10" v-model="score.tension" @keydown.enter="updateScore">{{ score.tension }}<br>
         <span style="color:red">{{ tension_error }}</span>
       </div>
       <div @click="editModeOn" v-else>
         {{ score.tension }}
       </div>
-
     </td>
 
     <td>
       <div v-if="editMode">
-        <input type="number" v-model="score.sleep" @keydown.enter="updateScore"><br>
+        <input type="range" min="0" max="10" v-model="score.sleep" @keydown.enter="updateScore">{{ score.sleep }}<br>
         <span style="color:red">{{ sleep_error }}</span>
       </div>
       <div @click="editModeOn" v-else>
         {{ score.sleep }}
       </div>
-
     </td>
 
+    <button class="btn btn-secondary btn-sm" type="button" v-if="!editMode" v-on:click.prevent="editModeOn()">Edit</button>
     <button class="btn btn-primary btn-sm" type="button" v-if="editMode" v-on:click.prevent="updateScore()">Save</button>
     <button class="btn btn-warning btn-sm" type="button" v-if="editMode" v-on:click.prevent="deleteScore()">Delete</button>
   </tr>
