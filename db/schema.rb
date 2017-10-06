@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170929072232) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "day_scores", force: :cascade do |t|
     t.date "day"
     t.integer "tension"
